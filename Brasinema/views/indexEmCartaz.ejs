@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="css/styleEmCartaz.css">
+      <link rel="stylesheet" href="css/navbar.css">
+      <link rel="stylesheet" href="css/footer.css">
+      <script src="../public/scripts/header.js"></script>
+      <script src="../public/scripts/scriptEmCartaz.js"></script>
+      <script src="../public/scripts/scriptRotas.js"></script>
+      <title>Brasinema</title>
+    </head>
+    <body>
+        <%- include("./partials/header.ejs") %>  <!-- Header-->
+    
+        <main>
+            <div class="maingrid">
+                <div class="titleContainer">
+                    <h1 id="title">Filmes em Cartaz</h1> 
+                </div>
+                <br>
+                <div class="gridContainer">
+                    <Section class="grid grid-template-rows-4">
+                        <% for(item of listaFilme){ %>
+                        <div class="item">
+                            <img src="<%= item.imgBanner %>" alt="img1" height="94%" width="100%" onclick="click<%= item.filmeId %>()">
+                            <p class="movieName"><%= item.nome %></p>
+                        </div>
+                        
+                        <% } %>
+                        
+                    </Section>
+                </div>
+                
+                    
+            </div>
+        </main>
+           
+            
+
+        <%- include("./partials/footer.ejs") %> <!-- Footer-->
+
+
+    </body>

@@ -1,0 +1,139 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    color: #ffd700;
+    text-decoration: none;
+    font-family: fantasy;
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+a:hover{
+    color: #ffe657;
+    transition: 0.4s;
+    opacity: 1;
+}
+
+.logo img{
+    width: 10vh;
+
+}
+
+header{
+    background-color: rgb(0, 0, 0);
+    z-index: 15;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 8px 24px;
+    width: 100%;
+    position: fixed;
+    
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    height:8vh;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 17%;
+    margin-right: 17%;
+    justify-content: space-between;
+}
+
+.fundo {
+    background-image: linear-gradient(45deg, rgb(73, 73, 73), rgb(0, 0, 0));
+    background-position: 100%;
+    background-size: auto;
+    background-repeat: repeat;
+    height: 115vh;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+}
+
+.nav-list > li{
+    letter-spacing: 3px;
+    margin-left: 40px;
+}
+
+#citySelect{
+    color: white;
+    font-family: fantasy;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+#citySelect:hover{
+    cursor: pointer;
+    color: #cfcfcf;
+}
+
+#city{
+    font-size: 19px;
+    text-decoration: underline;
+}
+
+#cityText{
+    text-align: left;
+    margin-left: 10px;
+}
+
+
+
+
+
+.modalHeader {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  
+  .modal-contentHeader {
+    background-color: #383838;
+    margin: 15% auto;
+    padding: 20px;
+    width: 20%; 
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f2f2f2;
+    border-radius: 10px;
+  }
+  
+  .closeHeader {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+.closeHeader:hover,
+.closeHeader:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cidade{
+    font-weight: bold;
+}
+
+.cidade:hover{
+    cursor: pointer;
+    transition: 0.5s;
+    color: #ffd700;
+}
+
+#headerAc{
+    margin-top: 5px;
+}

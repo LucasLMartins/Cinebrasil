@@ -1,0 +1,190 @@
+/*_____________________NAV_______________________*/
+/*_____________________NAV_______________________*/
+/*_____________________NAV_______________________*/
+/*_____________________NAV_______________________*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    color: #ffd700;
+    text-decoration: none;
+    font-family: fantasy;
+    font-size: 20px;
+}
+
+a:hover{
+    opacity: 0.7;
+}
+
+.logo img{
+    width: 10vh;
+
+}
+
+header{
+    background-color: black;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    height:8vh;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 17%;
+    margin-right: 17%;
+    justify-content: space-between;
+}
+
+main {
+    background-size: cover;
+    height: 100%;
+    padding-bottom: 50px;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+}
+
+.nav-list > li{
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+
+/*_____________________NAV_______________________*/
+/*_____________________NAV_______________________*/
+/*_____________________NAV_______________________*/
+/*_____________________NAV_______________________*/
+
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
+
+body{
+    background-image: linear-gradient(45deg, rgb(73, 73, 73), rgb(0, 0, 0));
+}
+
+.body_main{
+    margin: auto;
+    padding-top: 50px;
+    width: 100%;
+    height: auto;
+}
+
+
+.movieimg{ 
+    float: right;
+    color: #fff;
+    position: relative;
+    padding-left: 15px;
+}
+
+.principal{
+    color: white;
+    text-align: left;
+    position: relative;
+    top: 18%;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    padding: 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #ffd700;
+    margin-left: 17%;
+    margin-right: 17%;
+    background-color: rgb(24, 24, 24);
+}
+
+.moviecontent{
+    text-align: left;
+    font-size: 17px;
+}
+
+#txtmiranha{
+    text-align: justify;
+}
+
+.session{
+    background-color: rgb(24, 24, 24);
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 17%;
+    margin-right: 17%;
+}
+
+.sessao{
+    padding: 10px 20px;
+    text-align: left;
+}
+
+#container{
+    background-color: rgb(199, 199, 199);
+}
+
+.psala{
+    display: inline;
+    font-size: 20px;
+}
+
+.sessiontitle{
+    color: white;
+    padding: 10px 15px;
+}
+
+.movietitle{
+    font-size: 23px;
+}
+
+.square{
+    border-style: solid;
+    border-color: rgb(24, 24, 24);
+    border-width: 1px;
+}
+
+.buttonBuy{
+    margin-left: 1%;
+}
+
+.buttonStyle{
+    font-size: 20px;
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(43, 43, 43);
+    padding: 3px 15px;
+    background-color: rgb(43, 43, 43);
+}
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
+
+/*_____________________FOOTER_______________________*/
+/*_____________________FOOTER_______________________*/
+/*_____________________FOOTER_______________________*/
+/*_____________________FOOTER_______________________*/
+
+.footer-div{
+    display: flex;
+    height: 12vh;
+    color: #ffd700;
+    background-color: black;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+.footer-img{
+    width: 150px;
+}
+
+.margem-p{
+    margin-top: 5vh;
+}
+
+/*_____________________FOOTER_______________________*/
+/*_____________________FOOTER_______________________*/
+/*_____________________FOOTER_______________________*/
+/*_____________________FOOTER_______________________*/

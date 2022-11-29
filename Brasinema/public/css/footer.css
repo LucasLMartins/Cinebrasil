@@ -1,0 +1,25 @@
+.footer-div{
+    display: flex;
+    height: 8vh;
+    color: #ffd700;
+    background-color: black;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+
+}
+
+footer{
+    width: 100%;
+    height: 8vh;
+    position: relative;
+    bottom: 0;
+}   
+.footer-img{
+    width: 150px;
+}
+
+.margem-p{
+    padding-top: 3vh;
+}

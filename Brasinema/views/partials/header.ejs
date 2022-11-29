@@ -1,0 +1,38 @@
+<header>
+    <nav>
+        <a class="logo" href="/">
+            <img src="../public/imagens/overlay/Logo_uni-cine.png">
+        </a>
+
+        <ul class="nav-list">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/Em-Cartaz">Em Cartaz</a></li>
+          <li><a href="/programacao">Programação</a></li>
+        </ul>
+
+        <div id="citySelect" onclick="openModalHeader()">
+          <img src="../../public/imagens/overlay/locationPin.png" height="32px" id="locationImg" itemid="locationImg">
+
+          <div id="cityText"><p>Programação em</p>
+            <p id="city"><%= filialEscolhida %></p>
+          </div>
+        </div>
+    </nav>
+
+    <div id="myModal" class="modalHeader">
+
+      <div class="modal-contentHeader">
+        <span class="closeHeader" onclick="closeModalHeader()">&times;</span>
+        <h3>Selecione uma filial</h3>
+      </br>
+        <form action="/pr" method="POST">
+          <button onclick="paranaClick()" id="headerPr" class="cidade" type="submit">Paraná</button>
+        </form>
+        <form action="/sp" method="POST">
+          <button onclick="acreClick()" id="headerAc" class="cidade" type="submit">São Paulo</button>
+        </form>
+          
+      </div>
+    
+    </div>
+  </header>

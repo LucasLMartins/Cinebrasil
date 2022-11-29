@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <% for(item of listaFilme){ %>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/styleFilme.css">
+        <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <script src="../public/scripts/scriptFilme.js"></script>
+        <script src="../public/scripts/header.js"></script>
+        <title><%= item.nome %></title>
+    </head>
+
+
+    <body>
+
+        <%- include("./partials/header.ejs") %>  <!-- Header-->
+
+        <main>
+            <div class="body_main">
+
+
+                <div class="principal">
+                
+                    <div class="movieimg">
+                        <img src="<%= item.imgBanner %>" alt="Principal" width="100%">
+                    </div>
+
+                    <div class="moviecontent">
+                        <h3 class="movietitle"> <%= item.nome %></h3>
+                        </br>
+                        <p id="txtmiranha"><%= item.descricao %></p> 
+                        </br>
+                        <p>Elenco: <%= item.elenco %></p>
+                        </br>
+                        <p>Diretor: <%= item.diretor %></p>
+                        </br>
+                        <p>Gênero: <%= item.genero %></p>
+                        </br>
+                        <p>Duração: <%= item.duracao %></p>
+                        </br>
+                        <p>Classifição: <%= item.classificacao %></p>
+                    </div>
+
+                </div>
+
+    <% } %>
+
+                <div class="session">
+                    <h3 class="sessiontitle">Próximas Sessões:</h3>
+    <% for(item of listaSessao){ %>
+                    <div id="container">
+                        <div class="square">
+                            <div class="sessao">
+                                <p class="psala">| <%= item.tipoFilme %> | Sala <%= item.numeroSala %> | <%= item.horario %> - <%= item.data %></p>
+                            </div>
+                        </div>
+                    </div>
+    <% } %>
+                </div>   
+
+    <% for(item of listaFilme){ %>
+                <div class="buttonDiv">
+                    <a href="/ingresso/<%= item.nome %>" class="buttonBuy" onclick="sessaoClick()">
+                        <button class="buttonStyle">Comprar Ingressos</button>
+                    </a>
+                </div>
+    <% } %>
+            </div>
+            
+        </main>
+        
+        <%- include("./partials/footer.ejs") %> <!-- Footer-->
+
+    </body>
+
+</html>

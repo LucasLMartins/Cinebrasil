@@ -1,0 +1,106 @@
+
+body{
+    background-image: linear-gradient(45deg, rgb(73, 73, 73), rgb(0, 0, 0));
+}
+
+main{
+	padding-top: 8vh;
+    min-height: 75vh;
+}
+
+
+h1 {
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+	font-size: 40px;
+}
+
+body > div {
+	padding: 30px 0;
+}
+
+body > div:nth-of-type(even) {
+	background: rgba(0,0,0,.03);
+}
+
+
+.grid-template-rows-4 {
+    display: grid;
+    grid-gap: 1.7%;
+	grid-template-columns: 24% 24% 24% 24%;
+}
+
+.gridContainer{
+	margin-left: 17%;
+	margin-right: 17%;
+	width: 66%;
+	position: relative;
+}
+
+.item {
+	text-align: center;
+	font-size: 1.5em; 
+	box-shadow: rgba(0, 0, 1, 0.5) 0px 7px 29px 0px;
+	background-color: #111111;
+	border-style: solid;
+    border-width: 7px;
+    border-radius: 6px;
+	border-color: #111111;
+	color: rgb(255, 255, 255);
+	font-size: 19px;
+    font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.item:hover{
+    box-shadow: #ffd700 0px 4px 15px 0px;
+    cursor: pointer;
+	color: #ffd700;
+	animation-name: boxGlow;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes boxGlow {
+    0%{
+        box-shadow: #ffd700 0px 4px 15px 0px;
+    }
+    20%{
+        box-shadow: #867200 0px 4px 15px 0px;
+    }
+    40%{
+        box-shadow: rgba(0, 0, 1, 0.5) 0px 4px 15px 0px;
+    }
+    60%{
+        box-shadow: #867200 0px 4px 15px 0px;
+    }
+    80%{
+        box-shadow: #ffd700 0px 4px 15px 0px;
+    }
+    100%{
+        box-shadow: #867200 0px 4px 15px 0px;
+    }
+}
+
+.maingrid{
+	padding-top: 5vh;
+	padding-bottom: 12vh;
+}
+
+.titleContainer{
+	text-align: left;
+	margin-left: 17%;
+	margin-right: 17%;
+	margin-bottom: 2vh;
+}
+
+.movieName{
+	display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 95%;
+	padding-top: 0.5%;
+}

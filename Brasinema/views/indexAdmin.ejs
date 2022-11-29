@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../public/css/navbar.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
+    <script src="../public/scripts/header.js"></script>
+    <link rel="stylesheet" href="../public/css/styleAdmin.css"> 
+    <link rel="stylesheet" href="css/styleCrud.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    
+</head>
+<body>
+
+  <%- include("./partials/headerAdmin.ejs") %>
+
+  <div class="chooseTable">
+    <button onclick="openFuncionarios()" class="chooseButton" id="buttonFunc">Funcionários</button>
+    <button onclick="openIngressos()" class="chooseButton" id="buttonIngressos"> Ingressos </button>
+  </div>
+
+  <div id="megadiv">
+    <div class="container">
+      <div class="header">
+        <span>Cadastro de Funcionários</span>
+        <button onclick="openModal()" id="new">Incluir</i></button>
+      </div>
+
+      <% for(item of listaSalario){ %>
+        <div class="ganhosIngresso">
+          <p class="totalValor">Total gastos do mês</p>
+          <form method="POST" action="/admin-loggedF" id="monthNumberFuncionario" style="display: inline-block;">
+            <select class="selectDate" name="mes" onchange="changeMonthFuncionario()" id="selectMesFuncionario">
+              <option value="1">01</option>
+              <option value="2">02</option>
+              <option value="3">03</option>
+              <option value="4">04</option>
+              <option value="5">05</option>
+              <option value="6">06</option>
+              <option value="7">07</option>
+              <option value="8">08</option>
+              <option value="9">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select> 
+          </form>
+          <p class="totalValor">de</p>
+          <select class="selectDate">
+            <option value="2022">2022</option>
+          </select> 
+          <p class="totalValor">: <b class="valorDB">R$<%= item.Total_Salarios_Funcionarios%></b></p>
+        </div>
+        
+        
+      <% } %>
+
+      <div class="divTable">
+        <table>
+          <thead>
+            <tr>
+              <th class="acao">Nome Funcionário</th>
+              <th class="acao">CPF</th>
+              <th class="acao">Função</th>
+              <th class="acao">Salário</th>
+              <th class="acao">Contratação</th>
+              <th class="acao">Demissão</th>
+              <th class="acao">Filial</th>
+              <th class="acao">Estado Contratual</th>        
+              <th class="acao">Editar</th>
+              <th class="acao">Excluir</th>
+            </tr>
+            <tr>
+            <% for(item of listaFuncionarios){ %>
+            <td><%= item.nomeFuncionario %></td>
+            <td><%= item.cpfFuncionario %></td>
+            <td><%= item.cargoFuncionario %></td>
+            <td>R$ <%= item.salarioFuncionario %></td>
+            <td><%= item.Contratado %></td>
+            <td><%= item.FimContrato %></td>
+            <td><%= item.Filial %></td>
+            <td><%= item.Contrato %></td>
+            <td class="acao">
+              <button onclick="openButtonEdit<%= item.idFuncionario %>()">
+                <i class='bx bx-edit' ></i>
+              </button>
+            </td>
+            <td class="acao">
+              <form action="/admin-loggedM" method="POST">
+                <input type="text" class="buttonDelete" name="buttonDelete" value="<%= item.cpfFuncionario %>">
+                <button type="submit" onclick="openButtonDrop<%= item.cpfFuncionario %>">
+                  <i class='bx bx-trash'></i>
+                </button>
+              </form>
+              
+            </td>
+          </tr>
+
+          <div id="modal-container<%= item.idFuncionario %>" class="modal-container-edit">
+            <div class="modal">
+              <h2>Editar Funcionário</h2>
+              <form method="POST" action="/admin-loggedE" id="editForm">
+                <input class="m-id" type="text" name="idFunc" value="<%= item.idFuncionario %>"/>
+
+                <label>Nome</label>
+                <input type="text" required name="nomeFunc" value="<%= item.nomeFuncionario %>"/>
+
+                <label>CPF</label>
+                <input type="text" required name="cpfFunc" value="<%= item.cpfFuncionario %>"/>
+
+                <label>Função</label>
+                <input type="text" required name="funcaoFunc" value="<%= item.cargoFuncionario %>"/>
+
+                <label>Salário</label>
+                <input type="number" required name="salarioFunc" value="<%= item.salarioFuncionario %>"/>
+
+                <label>Data de Contratação</label>
+                <input type="date" placeholder="dd-mm-yyyy" min="1997-01-01" max="2030-12-31" required name="dataFunc" value="<%= item.mesContratado %>"/>
+
+                <label>Filial</label>
+                <select name="filialFunc" class="contratoInput" id="selectFilialEdit<%= item.idFuncionario %>">
+                  <option value='1'>Paraná</option>
+                  <option value='2'>São Paulo</option>
+                </select>
+
+                <label>Situação Contrato</label>
+                <select id="contratoInput<%= item.idFuncionario %>" name="contratoAtivo" class="contratoInput" onchange="changeContrato<%= item.idFuncionario %>()">
+                  <option value='1'>Ativo</option>
+                  <option value='2'>Inativo</option>
+                </select>
+
+                <label for="inputDemissao<%= item.idFuncionario %>">Data de Demissão</label>
+                <input id="inputDemissao<%= item.idFuncionario %>" type="date" placeholder="dd-mm-yyyy" min="1997-01-01" max="2030-12-31" name="dataFuncDemissao" value="<%= item.mesFimContrato %>"/>
+
+                <button id="btnSalvar" type="submit">Salvar</button>
+
+              </form>
+            </div>
+          </div>
+
+
+          <script>
+            var modalEdit = document.getElementById('modal-container<%= item.idFuncionario %>');
+
+            function openButtonEdit<%= item.idFuncionario %>(){
+              document.getElementById('modal-container<%= item.idFuncionario %>').style.display = "flex";
+            }
+
+            modalEdit.onclick = e => {
+              if (e.target.className.indexOf('modal-container-edit') !== -1) {
+                document.getElementById('modal-container<%= item.idFuncionario %>').style.display = "none";
+              }
+            }
+
+            document.getElementById('selectFilialEdit<%= item.idFuncionario %>').value = "<%= item.idFilial %>"
+            document.getElementById('contratoInput<%= item.idFuncionario %>').value = "<%= item.contratoAtivo %>"
+
+            if(document.getElementById('contratoInput<%= item.idFuncionario %>').value == "1"){
+              document.getElementById('inputDemissao<%= item.idFuncionario %>').style.backgroundColor = "darkgray"
+              document.getElementById('inputDemissao<%= item.idFuncionario %>').readOnly = true;
+              document.getElementById('inputDemissao<%= item.idFuncionario %>').value = null;
+            }
+
+            function changeContrato<%= item.idFuncionario %>(){
+              if(document.getElementById('contratoInput<%= item.idFuncionario %>').value == "2"){
+              document.getElementById('inputDemissao<%= item.idFuncionario %>').style.backgroundColor = "white"
+              document.getElementById('inputDemissao<%= item.idFuncionario %>').readOnly = false;
+              }
+              else if(document.getElementById('contratoInput<%= item.idFuncionario %>').value == "1"){
+              document.getElementById('inputDemissao<%= item.idFuncionario %>').style.backgroundColor = "darkgray"
+              document.getElementById('inputDemissao<%= item.idFuncionario %>').readOnly = true;
+              document.getElementById('inputDemissao<%= item.idFuncionario %>').value = null;
+              }
+            }
+
+
+          </script>
+
+
+          <% } %>
+        
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="modal-container" class="modal-container">
+        <div class="modal">
+          <h2>Incluir Novo Funcionário</h2>
+          <form method="POST" action="/admin-loggedP">
+            <input class="m-id" type="text" name="idFunc"/>
+
+            <label for="m-nome">Nome</label>
+            <input id="m-nome" type="text" required name="nomeFunc"/>
+
+            <label for="m-cpf">CPF</label>
+            <input id="m-cpf" type="text" required name="cpfFunc"/>
+    
+            <label for="m-funcao">Função</label>
+            <input id="m-funcao" type="text" required name="funcaoFunc"/>
+    
+            <label for="m-salario">Salário</label>
+            <input id="m-salario" type="number" required name="salarioFunc"/>
+
+            <label for="m-dataContratacao">Data de Contratação</label>
+            <input id="m-dataContratacao" placeholder="dd-mm-yyyy" min="1997-01-01" max="2030-12-31" type="date" required name="dataFunc" />
+
+            <label for="m-filial">Filial</label>
+            <select name="filialFunc" class="contratoInput">
+              <option value='1' selected="selected">Paraná</option>
+              <option value='2'>São Paulo</option>
+            </select>
+
+            <input id="m-ativo" class="m-id" type="text" required name="contratoAtivo" value="1"/>
+
+            <button id="btnSalvar" type="submit">Salvar</button>
+          </form>
+        </div>
+      </div>
+  
+    </div>
+
+  </div>
+
+
+  <div id="divIngressos">
+    <div class="container">
+      <div class="header">
+        <span>Ingressos</span>
+        <!--<button onclick="openModal()" id="new">Incluir</i></button>-->
+      </div>
+
+      <% for(item of listaIngresso){ %>
+        <div class="ganhosIngresso">
+          <p class="totalValor">Total ganhos do mês</p>
+          <form method="POST" action="/admin-loggedI" id="monthNumber" style="display: inline-block;">
+            <select class="selectDate" name="mes" onchange="changeMonth()" id="selectMes">
+              <option value="1">01</option>
+              <option value="2">02</option>
+              <option value="3">03</option>
+              <option value="4">04</option>
+              <option value="5">05</option>
+              <option value="6">06</option>
+              <option value="7">07</option>
+              <option value="8">08</option>
+              <option value="9">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select> 
+          </form>
+          
+          <p class="totalValor">de</p>
+          <select class="selectDate">
+            <option value="2022">2022</option>
+          </select> 
+          <p class="totalValor">: <b class="valorDB">R$<%= item.Ganhos%></b></p>
+        </div>
+
+        <script>
+          document.getElementById('selectMes').value = "<%= mesSelecionado %>"
+
+          document.getElementById('selectMesFuncionario').value = "<%= mesSelecionadoF %>"
+        </script>
+        
+        
+      <% } %>
+
+      <div class="divTable">
+        <table>
+          <thead>
+            <tr>
+              <th class="acao">Sessão</th>
+              <th class="acao">Nome</th>
+              <th class="acao">CPF</th>
+              <th class="acao">E-mail</th>
+              <th class="acao">Data</th>
+              <th class="acao">Filial</th>            
+            </tr>
+            <tr>
+            <% for(item of listaIngressos){ %>
+            <td><%= item.sessaoId %></td>
+            <td><%= item.nome %></td>
+            <td><%= item.cpf %></td>
+            <td><%= item.email %></td>
+            <td><%= item.Date %></td>
+            <td><%= item.Filial %></td>
+            </tr>
+            <% } %>
+          </thead>
+        </table>
+      </div>
+
+  
+    <script src="../public/scripts/crud.js"></script>
+</body>
+</html>

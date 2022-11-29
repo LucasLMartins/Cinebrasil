@@ -1,0 +1,123 @@
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
+
+body{
+    background-image: linear-gradient(45deg, rgb(73, 73, 73), rgb(0, 0, 0));
+}
+main{
+    min-height: 75vh;
+}
+
+.body_main{
+    margin: auto;
+    padding-top: 12vh;
+    padding-bottom:5vh;
+    width: 100%;
+    height: auto;
+    min-height: 75vh;
+}
+
+
+.movieimg{ 
+    float: right;
+    color: #fff;
+    position: relative;
+    padding-left: 15px;
+    width: 30%;
+}
+
+.principal{
+    color: white;
+    text-align: left;
+    position: relative;
+    top: 18%;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    padding: 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #ffd700;
+    margin-left: 17%;
+    margin-right: 17%;
+    width: 64%;
+    background-color: rgb(24, 24, 24);
+}
+
+.moviecontent{
+    text-align: left;
+    font-size: 17px;
+}
+
+#txtmiranha{
+    text-align: justify;
+}
+
+.session{
+    background-color: rgb(24, 24, 24);
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 17%;
+    margin-right: 17%;
+}
+
+.sessao{
+    padding: 10px 20px;
+    text-align: left;
+}
+
+#container{
+    background-color: rgb(199, 199, 199);
+}
+
+.psala{
+    display: inline;
+    font-size: 20px;
+}
+
+.sessiontitle{
+    color: white;
+    padding: 10px 15px;
+}
+
+.movietitle{
+    font-size: 23px;
+}
+
+.square{
+    border-style: solid;
+    border-color: rgb(24, 24, 24);
+    border-width: 1px;
+}
+
+.buttonDiv{
+    margin-left: 17%;
+    margin-right: 17%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.buttonBuy{
+    margin-left: 1%;
+}
+
+.buttonStyle{
+    font-size: 20px;
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(24, 24, 24);
+    padding: 3px 15px;
+    background-color: rgb(24, 24, 24);
+}
+
+.buttonStyle:hover{
+    background-color: rgb(0, 0, 0);
+}
+
+
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
+/*_____________________BODY_______________________*/
