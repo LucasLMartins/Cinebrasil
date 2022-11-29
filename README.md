@@ -8,5 +8,5 @@ Principais funcionalidades
 
 Tecnologias utilizadas
 
-- Front end: HTML | CSS | Javascript
-- Back end: Node | Express | Sequelize | MySQL | Jquery
+- Front end: HTML | CSS | Javascript | Jquery
+- Back end: Node | Express | Sequelize | MySQL
