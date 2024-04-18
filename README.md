@@ -1,12 +1,12 @@
 # Cinebrasil
-Sistema de cinema desenvolvido como trabalho acadêmico para a faculdade Unibrasil.
+Cinema system developed as an academic project for Unibrasil college.
 
-### Principais funcionalidades
+### Main features
 
-- O cliente pode acessar os filmes em cartaz e as sessões disponíveis para cada filme, separadas por duas filiais em cidades diferentes. 
-- Já o admin pode gerenciar a lista de funcionários (CRUD) e visualizar os ingressos comprados e lucro, filtrando por mês ou por ano.
+- Customers can access the movies currently showing and the available sessions for each movie, separated by two branches in different cities. 
+- Admins can manage the list of employees (CRUD) and view purchased tickets and profits, filtering by month or year.
 
-### Tecnologias utilizadas
+### Technologies
 
 #### Front end:
 - HTML
